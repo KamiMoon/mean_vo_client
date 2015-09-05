@@ -4,32 +4,22 @@
         <form class="form-horizontal">
             <fieldset>
                 <legend><img src="images/Register.png" /> Register for Volunteer Omaha</legend>
-                <!--
-        <?php
-        echo $this->Form->input('first_name', array('label'=>'First Name:'));
-        echo $this->Form->input('last_name', array('label'=>'Last Name:'));
-        echo $this->Form->input('username', array('label'=>'Username:'));
-        echo $this->Form->input('email', array('label'=>'Email:'));
-        echo $this->Form->input('password', array('label'=>'Password:'));
-        echo $this->Form->input('confirm_password', array('type' => 'password', 'label'=>'Confirm Password:'));   
-    ?>
-    -->
-                <b-input label="First Name:" ng-model="form.firstName"></b-input>
-                <b-input label="Last Name:" ng-model="form.lastName"></b-input>
-                <b-input label="Username:" ng-model="form.userName"></b-input>
-                <b-input label="Email:" ng-model="form.email"></b-input>
-                <b-input label="Password:" ng-model="form.password"></b-input>
-                <b-input label="Confirm Password:" ng-model="form.confirmPassword"></b-input>
+                <b-input label="First Name:" ng-model="form.firstName" required="true"></b-input>
+                <b-input label="Last Name:" ng-model="form.lastName" required="true"></b-input>
+                <b-input label="Username:" ng-model="form.userName" required="true"></b-input>
+                <b-input label="Email:" ng-model="form.email" required="true"></b-input>
+                <b-input type="password" label="Password:" ng-model="form.password" required="true"></b-input>
+                <b-input type="password" label="Confirm Password:" ng-model="form.confirmPassword" required="true"></b-input>
                 <div class="form-group required">
                     <label for="UserConfirmPassword" class="col-lg-2 control-label">
                         <a data-toggle="modal" data-target="#myModal">Agree to Terms &amp; Conditions:</a>
                     </label>
                     <div class="col-lg-10">
-                        <input type="checkbox" name="data[User][terms]" class="form-control" style="width: 32px" value="1" id="UserTerms">
+                        <input type="checkbox" required class="form-control" style="width: 32px" value="1">
                     </div>
                 </div>
             </fieldset>
-            <button ng-click="submit()">Submit</button>
+            <b-input type="submit" ng-click="submit()"></b-input>
         </form>
     </div>
     <div class="col-md-1"></div>
