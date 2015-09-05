@@ -8,10 +8,10 @@
  * Controller of the meanVoApp
  */
 angular.module('meanVoApp')
-  .controller('RegisterCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('RegisterCtrl', function($scope) {
+        $scope.form = {};
+
+        $scope.submit = function() {
+            console.log($scope.form);
+        };
+    });
