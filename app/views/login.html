@@ -1,1 +1,37 @@
-<p>This is the login view.</p>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 form-2">
+        <!--
+        <?php echo $this->Session->flash('auth'); ?>
+            <?php echo $this->Form->create('User'); ?>
+
+        -->
+        <fieldset>
+            <legend>
+                <img src="img/Lock.png" /> Please enter your Username and Password
+            </legend>
+            <form class="form-horizontal">
+                <b-input label="Username:" ng-model="form.userName" required="true"></b-input>
+                <b-input type="password" label="Password:" ng-model="form.password" required="true"></b-input>
+            </form>
+        </fieldset>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary">Login</button>
+            </div>
+            <div class="col-md-2">
+                <a href="/#/register">
+                    <button type="button" class="btn btn-success">Sign-Up</button>
+                </a>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
