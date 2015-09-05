@@ -11,6 +11,7 @@ angular.module('meanVoApp')
     .factory('User', function() {
         return {
 
+
         };
 
 

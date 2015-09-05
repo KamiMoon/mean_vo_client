@@ -79,6 +79,16 @@ angular
                 controller: 'UserCtrl',
                 controllerAs: 'user'
             })
+            .when('/profile', {
+              templateUrl: 'views/profile.html',
+              controller: 'ProfileCtrl',
+              controllerAs: 'profile'
+            })
+            .when('/userEdit', {
+              templateUrl: 'views/useredit.html',
+              controller: 'UsereditCtrl',
+              controllerAs: 'userEdit'
+            })
             .otherwise({
                 redirectTo: '/'
             });
