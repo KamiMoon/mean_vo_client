@@ -29,49 +29,10 @@
         <div ng-view=""></div>
     </div>
     <div class="footer">
-        <div class="container">
-            <hr>
-            <footer class="footerfont">
-                <div class="row">
-                    <div class="col-md-3 footerdiv">
-                        <img src="img/Logoblack.png" alt="Volunteer Omaha" height="40px">
-                        <strong><br>Peter Kiewit Institute (PKI) 170 <br>
-        402.554.3819 <br>
-    <a href="mailto:vomaha@gmail.com?Subject=Hello%20again" target="_top">vomaha@gmail.com</a>
-    
-        </strong>
-                    </div>
-                    <div class="col-md-3">
-                        <b>Related Resources</b>
-                        <br>
-                        <ul>
-                            <li><a href="/#/about">What is Volunteer Omaha?</a></li>
-                            <li><a href="/#/about">What can you do as a Student?</a></li>
-                            <li><a href="/#/about">What can Organizations do?</a></li>
-                            <li><a href="/#/about">Who created Volunteer Omaha?</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 footerdiv">
-                        <b>How Can We Help You?</b>
-                        <br>
-                        <ul>
-                            <li><a href="/#/faq">How to use a Date Picker?</a></li>
-                            <li><a href="/#/faq">How to edit Profile Photos?</a></li>
-                            <li><a href="/#/faq">How to change Organization Profile?</a></li>
-                            <li><a href="/#/contact">Have any other questions?</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <b>Welcome to Volunteer Omaha!</b>
-                        <br> Explore our website for Organizations and Volunteer Opportunities! Contribute to your community by participating!
-                        <p>&copy; Volunteer Omaha 2014</p>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- /container -->
+        <b-footer />
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!---
     <script>
     ! function(A, n, g, u, l, a, r) {
         A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
@@ -83,6 +44,7 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
     </script>
+    -->
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -109,6 +71,7 @@
     <script src="scripts/controllers/faq.js"></script>
     <script src="scripts/directives/binput.js"></script>
     <script src="scripts/directives/bnavbar.js"></script>
+    <script src="scripts/directives/bfooter.js"></script>
     <!-- endbuild -->
 </body>
 
