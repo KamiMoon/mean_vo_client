@@ -3,9 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- required for HTML5 pushstate links -->
+    <base href="/">
+    <title>Volunteer Omaha</title>
+    <meta name="description" content="Volunteer Omaha">
+    <meta name="author" content="Eric Kizaki">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="shortcut icon" href="img/favicon.ico">-->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/bootstrap.css" />
     <link rel="stylesheet" href="styles/bootstrap-theme.css" />
@@ -19,34 +24,53 @@
     <![endif]-->
     <!-- Add your site or application content here -->
     <div class="header">
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#/">meanVo</a>
-                </div>
-                <div class="collapse navbar-collapse" id="js-navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#/">Home</a></li>
-                        <li><a ng-href="#/about">About</a></li>
-                        <li><a ng-href="#/">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <b-nav-bar />
     </div>
     <div class="container">
         <div ng-view=""></div>
     </div>
     <div class="footer">
         <div class="container">
-            <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+            <hr>
+            <footer class="footerfont">
+                <div class="row">
+                    <div class="col-md-3 footerdiv">
+                        <img src="img/Logoblack.png" alt="Volunteer Omaha" height="40px">
+                        <strong><br>Peter Kiewit Institute (PKI) 170 <br>
+        402.554.3819 <br>
+    <a href="mailto:vomaha@gmail.com?Subject=Hello%20again" target="_top">vomaha@gmail.com</a>
+    
+        </strong>
+                    </div>
+                    <div class="col-md-3">
+                        <b>Related Resources</b>
+                        <br>
+                        <ul>
+                            <li><a href="about">What is Volunteer Omaha?</a></li>
+                            <li><a href="about">What can you do as a Student?</a></li>
+                            <li><a href="about">What can Organizations do?</a></li>
+                            <li><a href="about">Who created Volunteer Omaha?</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footerdiv">
+                        <b>How Can We Help You?</b>
+                        <br>
+                        <ul>
+                            <li><a href="faq">How to use a Date Picker?</a></li>
+                            <li><a href="faq">How to edit Profile Photos?</a></li>
+                            <li><a href="faq">How to change Organization Profile?</a></li>
+                            <li><a href="contact">Have any other questions?</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <b>Welcome to Volunteer Omaha!</b>
+                        <br> Explore our website for Organizations and Volunteer Opportunities! Contribute to your community by participating!
+                        <p>&copy; Volunteer Omaha 2014</p>
+                    </div>
+                </div>
+            </footer>
         </div>
+        <!-- /container -->
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -85,6 +109,7 @@
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/faq.js"></script>
     <script src="scripts/directives/binput.js"></script>
+    <script src="scripts/directives/bnavbar.js"></script>
     <!-- endbuild -->
 </body>
 
