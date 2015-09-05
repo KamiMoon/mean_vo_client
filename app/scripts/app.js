@@ -74,6 +74,11 @@ angular
                 controller: 'FaqCtrl',
                 controllerAs: 'faq'
             })
+            .when('/user', {
+                templateUrl: 'views/user.html',
+                controller: 'UserCtrl',
+                controllerAs: 'user'
+            })
             .otherwise({
                 redirectTo: '/'
             });
