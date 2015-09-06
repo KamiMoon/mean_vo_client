@@ -7,6 +7,8 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+
+
 module.exports = function(grunt) {
 
     // Time how long tasks take. Can help when optimizing build times
@@ -16,7 +18,8 @@ module.exports = function(grunt) {
     require('jit-grunt')(grunt, {
         useminPrepare: 'grunt-usemin',
         ngtemplates: 'grunt-angular-templates',
-        cdnify: 'grunt-google-cdn'
+        cdnify: 'grunt-google-cdn',
+        configureProxies: 'grunt-connect-proxy'
     });
 
     // Configurable paths for the application
@@ -78,9 +81,16 @@ module.exports = function(grunt) {
             livereload: {
                 options: {
                     open: true,
-                    middleware: function(connect) {
-                        return [
-                            connect.static('.tmp'),
+                    middleware: function(connect, options) {
+
+                        if (!Array.isArray(options.base)) {
+                            options.base = [options.base];
+                        }
+
+                        // Setup the proxy
+                        var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+
+                        middlewares.push(connect.static('.tmp'),
                             connect().use(
                                 '/bower_components',
                                 connect.static('./bower_components')
@@ -89,10 +99,17 @@ module.exports = function(grunt) {
                                 '/app/styles',
                                 connect.static('./app/styles')
                             ),
-                            connect.static(appConfig.app)
-                        ];
+                            connect.static(appConfig.app));
+
+                        return middlewares;
                     }
-                }
+                },
+                proxies: [{
+                    context: '/api',
+                    host: 'localhost',
+                    port: 9090,
+                    https: false
+                }]
             },
             test: {
                 options: {
@@ -115,6 +132,18 @@ module.exports = function(grunt) {
                     open: true,
                     base: '<%= yeoman.dist %>'
                 }
+            },
+            server: {
+                options: {
+                    port: 9000,
+                    hostname: 'localhost'
+                },
+                proxies: [{
+                    context: '/api',
+                    host: 'localhost',
+                    port: 9090,
+                    https: false
+                }]
             }
         },
 
@@ -421,6 +450,7 @@ module.exports = function(grunt) {
             'wiredep',
             'concurrent:server',
             'autoprefixer:server',
+            'configureProxies:server',
             'connect:livereload',
             'watch'
         ]);

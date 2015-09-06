@@ -8,7 +8,7 @@
  * Controller of the meanVoApp
  */
 angular.module('meanVoApp')
-    .controller('UserCtrl', function($scope) {
+    .controller('UserCtrl', function($scope, $http) {
         $scope.users = [{
             id: 1,
             username: 'EricKiza87',
@@ -23,5 +23,8 @@ angular.module('meanVoApp')
             phone: '402-917-0381'
         }];
 
+        $http.get('/api/things').success(function(awesomeThings) {
+            console.log(awesomeThings);
+        });
 
     });
