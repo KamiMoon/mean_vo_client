@@ -39,11 +39,6 @@ angular
                 controller: 'AboutCtrl',
                 controllerAs: 'about'
             })
-            .when('/organizations', {
-                templateUrl: 'views/organizations.html',
-                controller: 'OrganizationsCtrl',
-                controllerAs: 'organizations'
-            })
             .when('/events', {
                 templateUrl: 'views/events.html',
                 controller: 'EventsCtrl',
@@ -89,9 +84,21 @@ angular
                 controller: 'UsereditCtrl',
                 controllerAs: 'userEdit'
             })
-            .when('/organizations/list', {
-                templateUrl: 'views/organization/list.html',
-                controller: 'OrganizationsCtrl'
+            .when('/organization/', {
+                templateUrl: 'views/organization/index.html',
+                controller: 'OrganizationCtrl'
+            })
+            .when('/organization/add', {
+                templateUrl: 'views/organization/add.html',
+                controller: 'OrganizationAddCtrl'
+            })
+            .when('/organization/edit/:id', {
+                templateUrl: 'views/organization/add.html',
+                controller: 'OrganizationEditCtrl'
+            })
+            .when('/organization/view/:id', {
+                templateUrl: 'views/organization/view.html',
+                controller: 'OrganizationViewCtrl'
             })
             .otherwise({
                 redirectTo: '/'

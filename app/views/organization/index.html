@@ -50,11 +50,10 @@
     </div>
 </div>
 <span class="glyphicon glyphicon-plus-sign"></span>
-<!-- <?php echo $this->Html->link('Add Organization', array('action' => 'add')); ?> -->
+<a href="/#/organizations/add">Add Organization</a>
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th></th>
             <th>Name</th>
             <th>Category</th>
@@ -63,12 +62,7 @@
         </tr>
     </thead>
     <tbody>
-        <!-- <?php foreach ($organizations as $organization): ?> -->
-        <tr>
-            <td><b>
-                            <!-- <?php echo $organization['Organization']['id']; ?>. -->
-                        </b>
-            </td>
+        <tr ng-repeat="organization in organizations">
             <td>
                 <!--                         <?php
             if(isset($organization['Organization']['photo']))
@@ -81,22 +75,20 @@
             ?> -->
             </td>
             <td>
-                <b>
-<!--                                 <?php echo $this->Html->link($organization['Organization']['name'], array('action' => 'view', $organization['Organization']['id'])); ?> -->
-                        </b>
+                <a href="/#/organization/view/{{organization._id}}}">{{organization.name}}</a>
             </td>
             <td>
                 <!-- <?php echo $organization['Category']['name']; ?> -->
             </td>
             <td>
-                <!-- <?php echo $organization['Organization']['created']; ?> -->
+                {{organization.created}}
             </td>
             <td>
                 <div class="row">
                     <div class="col-md-3">
                         <!-- <?php if($this->Auth->isOrgAdminFor($organization['Organization']['id']) ){ ?> -->
                         <button type="button" class="btn btn-default btn-sm" id="buttonlink"><span class="glyphicon glyphicon-pencil"></span>
-                            <!--                                         <?php echo $this->Html->link('Edit', array('action' => 'edit', $organization['Organization']['id'])); ?> -->
+                            <a href="/#/organization/edit/{{organization._id}}">Edit</a>
                         </button>
                         <!-- <?php }?> -->
                     </div>
@@ -117,6 +109,5 @@
                 </div>
             </td>
         </tr>
-        <!-- <?php endforeach; ?> -->
     </tbody>
 </table>
