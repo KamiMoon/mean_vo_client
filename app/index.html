@@ -12,8 +12,6 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="styles/bootstrap.css" />
-    <link rel="stylesheet" href="styles/bootstrap-theme.css" />
-    <link rel="stylesheet" href="styles/cake-bootstrap.css" />
     <link rel="stylesheet" href="styles/volunteeromaha.css">
 </head>
 
@@ -26,6 +24,7 @@
         <b-nav-bar />
     </div>
     <div class="container pagebg">
+        <div>{{successMessage}}</div>
         <div ng-view=""></div>
     </div>
     <div class="footer">
@@ -79,6 +78,7 @@
     <script src="scripts/services/UserService.js"></script>
     <script src="scripts/services/OrganizationService.js"></script>
     <script src="scripts/services/EventService.js"></script>
+    <script src="scripts/services/ValidationService.js"></script>
     <!-- endbuild -->
 </body>
 

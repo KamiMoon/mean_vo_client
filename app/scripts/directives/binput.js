@@ -20,19 +20,38 @@ angular.module('meanVoApp')
 
                 html += '<div class="form-group"><div class="col-lg-offset-2 col-lg-10"><input class="btn btn-primary" type="submit" value="{{label}}"></div></div>';
             } else {
-                html += '<div class="form-group';
+                html += '<div class="form-group"';
                 if (scope.required) {
                     html += ' required';
                 }
-                html += '">';
-                html += '<label class="col-lg-2 control-label">{{label}}</label>';
-                html += '<div class="col-lg-10">';
-                html += '<input type="{{type}}" ng-model="text" class="form control"';
-                if (scope.required) {
-                    html += ' required="required" ';
+                if (scope.name) {
+                    var someClass = "{'has-error': errors." + scope.name + "}";
+
+                    html += ' ng-class="' + someClass + '   "';
                 }
+                html += '>';
+                html += '<label class="col-lg-2 control-label">' + scope.label + '</label>';
+                html += '<div class="col-lg-10">';
+                html += '<input type="' + scope.type + '"';
+                if (scope.ngModel) {
+                    html += ' ng-model="' + scope.ngModel + '"';
+                }
+                html += ' class="form control"';
+                if (scope.required) {
+                    html += ' required ';
+                }
+                if (scope.name) {
+                    html += ' name="' + scope.name + '" ';
+                }
+
                 html += '/>';
-                html += '</div></div>';
+                html += '</div>';
+                if (scope.name) {
+                    html += '<p class="help-block" ng-if="errors.' + scope.name + '">';
+                    html += '{{errors.' + scope.name + '}}</p>';
+                }
+
+                html += '</div>';
             }
 
             return html;
@@ -42,18 +61,20 @@ angular.module('meanVoApp')
             restrict: 'E',
             require: '?ngModel',
             replace: true,
-            scope: {
-                text: '=ngModel',
+            /*scope: {
+                ngModel: '=ngModel',
+                name: '@?',
                 label: '@?',
                 type: '@?',
                 required: '@?'
-            },
+            },*/
             link: function postLink(scope, element, attrs) {
                 //default values
-                scope.label = scope.label || '';
-                scope.type = scope.type || 'text';
+                attrs.label = attrs.label || '';
+                attrs.type = attrs.type || 'text';
 
-                element.html(getTemplate(scope));
+                element.html(getTemplate(attrs));
+
                 $compile(element.contents())(scope);
             }
         };

@@ -4,31 +4,19 @@ angular.module('meanVoApp')
     .controller('OrganizationCtrl', function($scope, OrganizationService) {
 
         $scope.organizations = OrganizationService.query();
-    }).controller('OrganizationAddCtrl', function($scope, OrganizationService) {
+    }).controller('OrganizationAddCtrl', function($scope, OrganizationService, ValidationService) {
 
         $scope.organization = {};
 
         $scope.save = function(form) {
-            console.log($scope.organization);
 
             OrganizationService.save($scope.organization).$promise.then(function() {
-                console.log('SAVED');
+                ValidationService.displaySuccess();
             }, function(err) {
-                console.log(err);
-
-                err = err.data;
-                $scope.errors = {};
-
-                // Update validity of form fields that match the mongoose errors
-                angular.forEach(err.errors, function(error, field) {
-
-                    if (form[field]) {
-                        form[field].$setValidity('mongoose', false);
-                        $scope.errors[field] = error.message;
-                    }
-
-                });
+                ValidationService.displayErrors(form, err);
             });
+
+
         };
 
     }).controller('OrganizationEditCtrl', function($scope, $routeParams, OrganizationService) {
