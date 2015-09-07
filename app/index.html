@@ -24,7 +24,9 @@
         <b-nav-bar />
     </div>
     <div class="container pagebg">
-        <div>{{successMessage}}</div>
+        <div ng-if="successMessage" class="alert alert-success alert-dismissible" role="alert">{{successMessage}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
         <div ng-view=""></div>
     </div>
     <div class="footer">
