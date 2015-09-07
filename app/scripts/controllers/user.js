@@ -8,9 +8,12 @@
  * Controller of the meanVoApp
  */
 angular.module('meanVoApp')
-    .controller('UserCtrl', function($scope, $http) {
+    .controller('UserCtrl', function($scope, UserService) {
+
+
+        /*
         $scope.users = [{
-            id: 1,
+            _id: 1,
             username: 'EricKiza87',
             first_name: 'Eric',
             last_name: 'Kizaki',
@@ -21,10 +24,7 @@ angular.module('meanVoApp')
             zip: '68114',
             email: 'erickizaki@gmail.com',
             phone: '402-917-0381'
-        }];
+        }];*/
 
-        $http.get('/api/things').success(function(awesomeThings) {
-            console.log(awesomeThings);
-        });
-
+        $scope.users = UserService.query();
     });

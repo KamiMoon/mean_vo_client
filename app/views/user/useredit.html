@@ -74,16 +74,16 @@ $user = $this->Session->read('Auth.User');
 		    ?>
  -->
         <form class="form-horizontal">
-            <b-input label="Address:" ng-model="form.address" required="true"></b-input>
-            <b-input label="City:" ng-model="form.city" required="true"></b-input>
-            <b-input label="State:" ng-model="form.st" required="true"></b-input>
-            <b-input label="Zip:" ng-model="form.zip" required="true"></b-input>
+            <b-input label="Address:" ng-model="user.address"></b-input>
+            <b-input label="City:" ng-model="user.city"></b-input>
+            <b-input label="State:" ng-model="user.abbrev"></b-input>
+            <b-input label="Zip:" ng-model="user.zip"></b-input>
         </form>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="col">
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
     </div>
 </div>

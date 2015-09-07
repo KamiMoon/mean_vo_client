@@ -1,18 +1,18 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name meanVoApp.userService
- * @description
- * # userService
- * Service in the meanVoApp.
- */
 angular.module('meanVoApp')
-    .factory('User', function() {
-        return {
-
-
-        };
-
-
+    .factory('UserService', function($resource) {
+        return $resource('/api/users/:id/:controller', {
+            id: '@_id'
+        }, {
+            changePassword: {
+                method: 'PUT',
+                params: {
+                    controller: 'password'
+                }
+            },
+            update: {
+                method: 'PUT'
+            }
+        });
     });

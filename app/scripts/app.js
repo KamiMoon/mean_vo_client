@@ -75,19 +75,23 @@ angular
                 controllerAs: 'faq'
             })
             .when('/user', {
-                templateUrl: 'views/user.html',
+                templateUrl: 'views/user/user.html',
                 controller: 'UserCtrl',
                 controllerAs: 'user'
             })
-            .when('/profile', {
-              templateUrl: 'views/profile.html',
-              controller: 'ProfileCtrl',
-              controllerAs: 'profile'
+            .when('/profile/:id', {
+                templateUrl: 'views/user/profile.html',
+                controller: 'ProfileCtrl',
+                controllerAs: 'profile'
             })
-            .when('/userEdit', {
-              templateUrl: 'views/useredit.html',
-              controller: 'UsereditCtrl',
-              controllerAs: 'userEdit'
+            .when('/userEdit/:id', {
+                templateUrl: 'views/user/useredit.html',
+                controller: 'UsereditCtrl',
+                controllerAs: 'userEdit'
+            })
+            .when('/organizations/list', {
+                templateUrl: 'views/organization/list.html',
+                controller: 'OrganizationsCtrl'
             })
             .otherwise({
                 redirectTo: '/'

@@ -8,10 +8,6 @@
  * Controller of the meanVoApp
  */
 angular.module('meanVoApp')
-  .controller('OrganizationsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('OrganizationsCtrl', function() {
+
+    });

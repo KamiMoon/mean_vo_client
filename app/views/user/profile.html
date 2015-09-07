@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Profile for <strong>
-            		<!--<?php echo $user['User']['first_name']."&nbsp;".$user['User']['last_name']; ?>-->
+                    <!--<?php echo $user['User']['first_name']."&nbsp;".$user['User']['last_name']; ?>-->
             </strong></h1>
         </div>
         <div class="col-md-6">
@@ -21,10 +21,10 @@
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" target="_self">
-		          <span	class="glyphicon glyphicon-globe"></span> Organizations<span class="spangglyph glyphicon glyphicon-chevron-down"></span>
-		        </a>
-		      </h4>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" target="_self">
+                  <span class="glyphicon glyphicon-globe"></span> Organizations<span class="spangglyph glyphicon glyphicon-chevron-down"></span>
+                </a>
+              </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse">
                                 <div class="panel-body">
@@ -45,11 +45,11 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-				       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" target="_self"> <span class="glyphicon glyphicon-ok-sign"></span> 
-				          My Activities 
-				          <span class ="spangglyph glyphicon glyphicon-chevron-down"></span>
-				        </a>
-				      </h4>
+                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" target="_self"> <span class="glyphicon glyphicon-ok-sign"></span> 
+                          My Activities 
+                          <span class ="spangglyph glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                      </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse">
                                 <div class="panel-body">
@@ -75,11 +75,11 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-				         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" target="_self">
-				         	<span class="glyphicon glyphicon-list"></span> 
-				         	Administer
-				         	<span class =" spangglyph glyphicon glyphicon-chevron-down"></span> </a>
-				      </h4>
+                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" target="_self">
+                            <span class="glyphicon glyphicon-list"></span> 
+                            Administer
+                            <span class =" spangglyph glyphicon glyphicon-chevron-down"></span> </a>
+                      </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse">
                                 <div class="panel-body">
@@ -133,16 +133,16 @@
                         <div class="panel-body">
                             <center>
                                 <!--                                 <?php
-			if (!empty($user['User']['photo'])) 
-				{
+            if (!empty($user['User']['photo'])) 
+                {
 
-				echo "<img src='/volunteeromaha/files/user/photo/".$user['User']['id']. "/thumb_".$user['User']['photo']."' width='100px' height='100px' class='img-thumbnail'> ";
-						 
-				} 
-				else {
-					echo "&nbsp;&nbsp;&nbsp;<font size='45' class='glyphicon glyphicon-user'></font>";
-				}
-		 	?> -->
+                echo "<img src='/volunteeromaha/files/user/photo/".$user['User']['id']. "/thumb_".$user['User']['photo']."' width='100px' height='100px' class='img-thumbnail'> ";
+                         
+                } 
+                else {
+                    echo "&nbsp;&nbsp;&nbsp;<font size='45' class='glyphicon glyphicon-user'></font>";
+                }
+            ?> -->
                             </center>
                             <br>
                             <div class="row">
@@ -150,16 +150,14 @@
                                     <label>Name:</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <!-- <?php echo $user['User']['first_name']; ?>
-    <?php echo $user['User']['last_name']; ?> -->
+                                    {{user.first_name}} {{user.last_name}}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <label>Username:</label>
                                 </div>
-                                <div class="col-md-8">
-                                    <!-- <?php echo $user['User']['username']; ?> -->
+                                <div class="col-md-8" ng-bind="user.username">
                                 </div>
                             </div>
                             <div class="row">
@@ -167,8 +165,7 @@
                                     <label>Email:</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <a href="mailto:<?php echo $user['User']['email']; ?>">
-                                        <!-- <?php echo $user['User']['email']; ?> -->
+                                    <a href="mailto:{{user.email}}" ng-bind="user.email">
                                     </a>
                                 </div>
                             </div>
@@ -177,15 +174,8 @@
                                     <label>Address:</label>
                                 </div>
                                 <div class="col-md-8" style="vertical-align: top;">
-                                    <!-- <?php echo $user['User']['address']; ?>
-    <br>
-    <?php echo $user['User']['city']; ?>
-        <?php if(isset($user['State']['abbrev'])){
-						  	echo ', ';
-						  }
-						  ?>
-            <?php echo $user['State']['abbrev']; ?>
-                <?php echo $user['User']['zip']; ?> -->
+                                    {{user.address}}
+                                    <br /> {{user.city}} , {{user.abbrev}} {{user.zip}}
                                 </div>
                             </div>
                             <div class="row">
@@ -193,19 +183,18 @@
                                     <label>Phone:</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <!--                                     <?php $phone_number= $user['User']['phone']; 
-			    			echo substr($phone_number, 0,3);echo "-"; echo substr($phone_number,3,3); echo "-"; echo substr($phone_number,-4);
-			    		?> -->
+                                    <!-- TODO: formatting -->
+                                    {{user.phone}}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <label>
-                                        <!-- <?php if(isset($user['User']['fax'])){ echo "Fax:" ?> -->
+                                        Fax
                                     </label>
                                 </div>
                                 <div class="col-md-8">
-                                    <!-- <?php echo $user['User']['fax']; }?> -->
+                                    {{user.fax}}
                                 </div>
                             </div>
                             <div class="row">
@@ -213,7 +202,8 @@
                                     <label>Joined:</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <!-- <?php  echo date ("F d, Y", strtotime($user['User']['created'])) ?> -->
+                                    <!-- TODO: formatting -->
+                                    {{user.created}}
                                 </div>
                             </div>
                             <!-- <?php if($this->Auth->isMine($user['User']['id'])){ ?> -->
@@ -223,10 +213,10 @@
                                 </div>
                                 <div class="col-md-8">
                                     <!--                                         <?php if($user['User']['leaderboardopt'] == 0){ 
-	    					echo "YES";
-	    					} else { 
-							echo "NO";
-							}; ?> -->
+                            echo "YES";
+                            } else { 
+                            echo "NO";
+                            }; ?> -->
                                 </div>
                             </div>
                             <div class="row">
@@ -235,18 +225,19 @@
                                 </div>
                                 <div class="col-md-8">
                                     <!--                                         <?php 
-	    			$interests = $user['Interest'];
-	    			foreach ($interests as $interest){
-	    			echo $interest['interests'].'<br>';
-	    			}
-	    			?> -->
+                    $interests = $user['Interest'];
+                    foreach ($interests as $interest){
+                    echo $interest['interests'].'<br>';
+                    }
+                    ?> -->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <button type="button" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                        <a href="/#/userEdit/"></a>
+                                        <a href="/#/userEdit/{{user._id}}">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </a>
                                     </button>
                                 </div>
                                 <div class="col-md-8">
@@ -300,14 +291,14 @@
                                 </td>
                                 <td>
                                     <!--                                             <?php 
-										if(!isset($member['Organization']['name'])){
-											echo "<a href='/volunteeromaha/organizations/index'>All</a>";
-										}
-										else{
-											echo $this->Html->link($member['Organization']['name'], array('controller' => 'organizations', 'action' => 'view', $member['Organization']['id']));
-										}
-						        	
-						        	?> -->
+                                        if(!isset($member['Organization']['name'])){
+                                            echo "<a href='/volunteeromaha/organizations/index'>All</a>";
+                                        }
+                                        else{
+                                            echo $this->Html->link($member['Organization']['name'], array('controller' => 'organizations', 'action' => 'view', $member['Organization']['id']));
+                                        }
+                                    
+                                    ?> -->
                                 </td>
                                 <td>
                                     <!-- <?php echo $member['ORG_Status']['status']; ?> -->

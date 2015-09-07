@@ -8,7 +8,14 @@
  * Controller of the meanVoApp
  */
 angular.module('meanVoApp')
-    .controller('ProfileCtrl', function($scope) {
+    .controller('ProfileCtrl', function($scope, $routeParams, UserService) {
 
+        var id = $routeParams.id;
+
+        console.log(id);
+
+        $scope.user = UserService.get({
+            id: id
+        });
 
     });
