@@ -99,6 +99,21 @@ angular
             .when('/organization/view/:id', {
                 templateUrl: 'views/organization/view.html',
                 controller: 'OrganizationViewCtrl'
+            }).when('/event/', {
+                templateUrl: 'views/event/index.html',
+                controller: 'EventCtrl'
+            })
+            .when('/event/add', {
+                templateUrl: 'views/event/add.html',
+                controller: 'EventAddCtrl'
+            })
+            .when('/event/edit/:id', {
+                templateUrl: 'views/event/add.html',
+                controller: 'EventEditCtrl'
+            })
+            .when('/event/view/:id', {
+                templateUrl: 'views/event/view.html',
+                controller: 'EventViewCtrl'
             })
             .otherwise({
                 redirectTo: '/'

@@ -8,11 +8,26 @@ angular.module('meanVoApp')
 
         $scope.organization = {};
 
-        $scope.save = function() {
+        $scope.save = function(form) {
             console.log($scope.organization);
 
             OrganizationService.save($scope.organization).$promise.then(function() {
                 console.log('SAVED');
+            }, function(err) {
+                console.log(err);
+
+                err = err.data;
+                $scope.errors = {};
+
+                // Update validity of form fields that match the mongoose errors
+                angular.forEach(err.errors, function(error, field) {
+
+                    if (form[field]) {
+                        form[field].$setValidity('mongoose', false);
+                        $scope.errors[field] = error.message;
+                    }
+
+                });
             });
         };
 

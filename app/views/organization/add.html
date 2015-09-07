@@ -1,9 +1,11 @@
 <h1>Create Organization / School</h1>
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel-heading">
-            <h3><span class="glyphicon glyphicon-globe"></span> Basic Info:</h3></div>
-        <!--        <?php
+<form name="form" ng-submit="save(form)" novalidate>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-heading">
+                <h3><span class="glyphicon glyphicon-globe"></span> Basic Info:</h3>
+            </div>
+            <!--        <?php
             echo $this->Form->input('id', array('type' => 'hidden'));
             echo $this->Form->input('name');
             echo $this->Form->input('photo', array('type' => 'file'));
@@ -12,42 +14,54 @@
             echo $this->Form->input('short_description', array('type' => 'textarea', 'rows' => '2', 'cols' => '5'));
             echo $this->Form->input('long_description', array('type' => 'textarea', 'rows' => '5', 'cols' => '5'));
         ?> -->
-        <form class="form-horizontal">
-            <b-input label="Name:" ng-model="organization.name"></b-input>
-            <b-input label="Photo:" ng-model="organization.photo" type="file"></b-input>
-            <b-input label="Category:"></b-input>
-            <b-input label="Short Description:" ng-model="organization.short_description"></b-input>
-            <!-- TODO: long_description -->
-        </form>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel-heading">
-            <h3><span class="glyphicon glyphicon-user"></span> Contact Info:</h3></div>
-        <form class="form-horizontal">
-            <b-input label="Email:" ng-model="organization.email"></b-input>
-            <b-input label="Phone:" ng-model="organization.phone"></b-input>
-            <b-input label="Fax:" ng-model="organization.fax"></b-input>
-            <b-input label="URL:" ng-model="organization.url"></b-input>
-        </form>
-    </div>
-    <div class="col-md-6">
-        <div class="panel-heading">
-            <h3><span class="glyphicon glyphicon-home"></span> Address:</h3></div>
-        <form class="form-horizontal">
-            <b-input label="Address:" ng-model="organization.address"></b-input>
-            <b-input label="City:" ng-model="organization.city"></b-input>
-            <b-input label="State:" ng-model="organization.abbrev"></b-input>
-            <b-input label="Zip:" ng-model="organization.zip"></b-input>
-        </form>
-    </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-md-12">
-        <div align="right">
-            <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+            <div class="form-horizontal">
+                <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                            'has-error': form.name.$invalid && submitted }">
+                    <label class="col-lg-2 control-label ng-binding">Name:</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="name" ng-model="text" class="form control" required mongoose-error>
+                    </div>
+                    <p class="help-block" ng-if="form.name.$error.mongoose">
+                        {{errors.name}}
+                    </p>
+                </div>
+                <b-input label="Photo:" ng-model="organization.photo" type="file"></b-input>
+                <b-input label="Category:"></b-input>
+                <b-input label="Short Description:" ng-model="organization.short_description"></b-input>
+                <!-- TODO: long_description -->
+            </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel-heading">
+                <h3><span class="glyphicon glyphicon-user"></span> Contact Info:</h3>
+            </div>
+            <div class="form-horizontal">
+                <b-input label="Email:" ng-model="organization.email"></b-input>
+                <b-input label="Phone:" ng-model="organization.phone"></b-input>
+                <b-input label="Fax:" ng-model="organization.fax"></b-input>
+                <b-input label="URL:" ng-model="organization.url"></b-input>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel-heading">
+                <h3><span class="glyphicon glyphicon-home"></span> Address:</h3>
+            </div>
+            <div class="form-horizontal">
+                <b-input label="Address:" ng-model="organization.address"></b-input>
+                <b-input label="City:" ng-model="organization.city"></b-input>
+                <b-input label="State:" ng-model="organization.abbrev"></b-input>
+                <b-input label="Zip:" ng-model="organization.zip"></b-input>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div align="right">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
