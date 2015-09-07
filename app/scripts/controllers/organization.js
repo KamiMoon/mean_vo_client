@@ -1,9 +1,30 @@
 'use strict';
 
 angular.module('meanVoApp')
-    .controller('OrganizationCtrl', function($scope, OrganizationService) {
+    .controller('OrganizationCtrl', function($scope, OrganizationService, ValidationService) {
 
         $scope.organizations = OrganizationService.query();
+
+        $scope.delete = function(id) {
+            if (id) {
+
+                var r = confirm("Are you sure you want to delete?");
+                if (r == true) {
+                    OrganizationService.delete({
+                        id: id
+                    }).$promise.then(function() {
+                        ValidationService.displaySuccess();
+
+                        $scope.organizations = OrganizationService.query();
+
+                    }, function() {
+                        alert('Delete Failed');
+                    });
+                }
+
+            }
+        };
+
     }).controller('OrganizationAddCtrl', function($scope, OrganizationService, ValidationService) {
 
         $scope.organization = {};
@@ -15,7 +36,6 @@ angular.module('meanVoApp')
             }, function(err) {
                 ValidationService.displayErrors(form, err);
             });
-
 
         };
 
