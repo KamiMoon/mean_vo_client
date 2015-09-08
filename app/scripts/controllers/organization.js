@@ -5,6 +5,14 @@ angular.module('meanVoApp')
 
         $scope.organizations = OrganizationService.query();
 
+        $scope.searchParams = {};
+
+        $scope.search = function() {
+
+            $scope.organizations = OrganizationService.query($scope.searchParams);
+
+        };
+
         $scope.delete = function(id) {
             if (id) {
 
@@ -15,7 +23,7 @@ angular.module('meanVoApp')
                     }).$promise.then(function() {
                         ValidationService.displaySuccess();
 
-                        $scope.organizations = OrganizationService.query();
+                        $scope.organizations = OrganizationService.query($scope.searchParams);
 
                     }, function() {
                         alert('Delete Failed');
