@@ -38,6 +38,8 @@ angular
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl',
                 controllerAs: 'about'
+            }).when('/thanks', {
+                templateUrl: 'views/thanks.html'
             })
             .when('/events', {
                 templateUrl: 'views/events.html',

@@ -62,8 +62,8 @@ angular.module('meanVoApp')
                 return UserService.save(user,
                     function(data) {
                         $cookieStore.put('token', data.token);
-                        currentUser = UserService.get();
-                        return cb(user);
+                        //currentUser = UserService.get();
+                        return cb(data);
                     },
                     function(err) {
                         this.logout();

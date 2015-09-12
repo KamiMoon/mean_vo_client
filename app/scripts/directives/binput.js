@@ -20,10 +20,11 @@ angular.module('meanVoApp')
 
                 html += '<div class="form-group"><div class="col-lg-offset-2 col-lg-10"><input class="btn btn-primary" type="submit" value="{{label}}"></div></div>';
             } else {
-                html += '<div class="form-group"';
+                html += '<div class="form-group';
                 if (scope.required) {
                     html += ' required';
                 }
+                html += '"';
                 if (scope.name) {
                     var someClass = "{'has-error': errors." + scope.name + "}";
 
