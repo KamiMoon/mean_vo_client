@@ -3,8 +3,9 @@
 angular.module('meanVoApp')
     .factory('AuthService', function Auth($location, $rootScope, $http, UserService, $cookieStore, $q) {
         var currentUser = {};
+
         if ($cookieStore.get('token')) {
-            //currentUser = UserService.get();
+            currentUser = UserService.get();
         }
 
         return {
@@ -27,7 +28,6 @@ angular.module('meanVoApp')
                 success(function(data) {
                     $cookieStore.put('token', data.token);
 
-                    //probalby wrong
                     currentUser = UserService.get();
                     deferred.resolve(data);
                     return cb();
@@ -64,7 +64,7 @@ angular.module('meanVoApp')
                 return UserService.save(user,
                     function(data) {
                         $cookieStore.put('token', data.token);
-                        //currentUser = UserService.get();
+                        currentUser = UserService.get();
                         return cb(data);
                     },
                     function(err) {

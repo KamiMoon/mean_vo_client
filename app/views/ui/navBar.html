@@ -41,8 +41,10 @@
       ?>
 
     -->
-                <li><a href="/#/register"><span class="glyphicon glyphicon-new-window"></span> Register</a></li>
-                <li><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-show="isLoggedIn()"><a href="/#/user/profile"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                <li ng-show="isLoggedIn()"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                <li ng-hide="isLoggedIn()"><a href="/#/register"><span class="glyphicon glyphicon-new-window"></span> Register</a></li>
+                <li ng-hide="isLoggedIn()"><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
         <!--/.navbar-collapse -->

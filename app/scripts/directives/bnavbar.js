@@ -7,10 +7,31 @@
  * # bNavBar
  */
 angular.module('meanVoApp')
-    .directive('bNavBar', function() {
+    .directive('bNavBar', function($location, AuthService) {
         return {
             templateUrl: 'views/ui/navBar.html',
             restrict: 'E',
-            link: function postLink(scope, element, attrs) {}
+            scope: {},
+            link: function postLink(scope) {
+                scope.menu = [{
+                    'title': 'Home',
+                    'link': '/'
+                }];
+
+                scope.isCollapsed = true;
+                scope.isLoggedIn = AuthService.isLoggedIn;
+                scope.isAdmin = AuthService.isAdmin;
+                scope.getCurrentUser = AuthService.getCurrentUser;
+
+                scope.logout = function() {
+                    AuthService.logout();
+                    $location.path('/login');
+                };
+
+                scope.isActive = function(route) {
+                    return route === $location.path();
+                };
+
+            }
         };
     });

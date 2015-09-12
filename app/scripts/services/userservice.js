@@ -13,6 +13,12 @@ angular.module('meanVoApp')
             },
             update: {
                 method: 'PUT'
+            },
+            get: {
+                method: 'GET',
+                params: {
+                    id: 'me'
+                }
             }
         });
     });
