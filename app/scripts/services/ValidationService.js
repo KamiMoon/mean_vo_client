@@ -19,6 +19,11 @@ angular.module('meanVoApp')
             });
         };
 
+        this.error = function(errorText) {
+            //TODO - display these better
+            alert(errorText);
+        };
+
         this.displaySuccess = function(successMessage) {
             //clear errors
             $rootScope.errors = {};

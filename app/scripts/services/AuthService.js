@@ -26,6 +26,8 @@ angular.module('meanVoApp')
                 }).
                 success(function(data) {
                     $cookieStore.put('token', data.token);
+
+                    //probalby wrong
                     currentUser = UserService.get();
                     deferred.resolve(data);
                     return cb();

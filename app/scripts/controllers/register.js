@@ -13,8 +13,6 @@ angular.module('meanVoApp')
 
         $scope.save = function(form) {
 
-            console.log($scope.user);
-
             //if (form.$valid) {
             AuthService.createUser($scope.user)
                 .then(function() {

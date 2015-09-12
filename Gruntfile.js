@@ -143,6 +143,11 @@ module.exports = function(grunt) {
                     host: 'localhost',
                     port: 9090,
                     https: false
+                }, {
+                    context: '/auth',
+                    host: 'localhost',
+                    port: 9090,
+                    https: false
                 }]
             }
         },
