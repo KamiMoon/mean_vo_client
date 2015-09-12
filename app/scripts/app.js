@@ -81,7 +81,8 @@ angular
             .when('/profile/:id', {
                 templateUrl: 'views/user/profile.html',
                 controller: 'ProfileCtrl',
-                controllerAs: 'profile'
+                controllerAs: 'profile',
+                authenticate: true
             })
             .when('/userEdit/:id', {
                 templateUrl: 'views/user/useredit.html',
@@ -145,16 +146,16 @@ angular
                 }
             }
         };
-    }).run(function($rootScope) {
+    }).run(function($rootScope, AuthService, $location) {
         $rootScope.successMessage = '';
 
         // Redirect to login if route requires auth and you're not logged in
-        /*$rootScope.$on('$stateChangeStart', function(event, next) {
+        $rootScope.$on('$routeChangeStart', function(event, next) {
             AuthService.isLoggedInAsync(function(loggedIn) {
                 if (next.authenticate && !loggedIn) {
                     event.preventDefault();
                     $location.path('/login');
                 }
             });
-        });*/
+        });
     });
