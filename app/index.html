@@ -26,9 +26,7 @@
         <b-nav-bar />
     </div>
     <div class="container pagebg">
-        <div ng-if="successMessage" class="alert alert-success alert-dismissible" role="alert">{{successMessage}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
+        <b-feedback></b-feedback>
         <div ng-view=""></div>
     </div>
     <div class="footer">
@@ -75,6 +73,7 @@
     <script src="scripts/controllers/profile.js"></script>
     <script src="scripts/controllers/useredit.js"></script>
     <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/directives/bfeedback.js"></script>
     <script src="scripts/directives/binput.js"></script>
     <script src="scripts/directives/bnavbar.js"></script>
     <script src="scripts/directives/bfooter.js"></script>

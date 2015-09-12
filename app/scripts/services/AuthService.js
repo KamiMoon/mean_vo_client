@@ -4,7 +4,7 @@ angular.module('meanVoApp')
     .factory('AuthService', function Auth($location, $rootScope, $http, UserService, $cookieStore, $q) {
         var currentUser = {};
         if ($cookieStore.get('token')) {
-            currentUser = UserService.get();
+            //currentUser = UserService.get();
         }
 
         return {
