@@ -103,13 +103,7 @@ module.exports = function(grunt) {
 
                         return middlewares;
                     }
-                },
-                proxies: [{
-                    context: '/api',
-                    host: 'localhost',
-                    port: 9090,
-                    https: false
-                }]
+                }
             },
             test: {
                 options: {
@@ -145,6 +139,11 @@ module.exports = function(grunt) {
                     https: false
                 }, {
                     context: '/auth',
+                    host: 'localhost',
+                    port: 9090,
+                    https: false
+                }, {
+                    context: '/server',
                     host: 'localhost',
                     port: 9090,
                     https: false
