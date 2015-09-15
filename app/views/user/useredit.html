@@ -3,18 +3,6 @@
         <h1>Edit Profile</h1>
     </div>
     <div class="col-md-2" align="center">
-        <!--         <?php
-$user = $this->Session->read('Auth.User');
-			if (!empty($user['photo'])) 
-				{
-
-				echo "<img src='/volunteeromaha/files/user/photo/".$user['id']. "/thumb_".$user['photo']."' width='60px' height='60px' class='img-thumbnail'> ";
-						 
-				} 
-				else {
-					echo "<font size='45' class='glyphicon glyphicon-user'></font>";
-				}
-		 	?> -->
         <img ng-if="user && user.photo" ng-src="{{user.photo}}" width="60px" height="60px" class="img-thumbnail">
         <font ng-if="!user.photo" size="45" class="glyphicon glyphicon-user"></font>
         <br>
