@@ -20,27 +20,6 @@
                 <li><a href="/#/contact"><i class="glyphicon glyphicon-envelope"></i>Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <!--
-                <?php
-      $user = $this->Session->read('Auth.User');
-      if (!empty($user)) 
-        {
-
-        if(isset($user['photo']))
-            {
-              echo "<li><a href='//users/profile/" . $user['id'] . "'><img src='//files/user/photo/".$user['id']. "/thumb_".$user['photo']."' width='20px' height='20px' class='img-circle'> " . $user['username'] . "</a></li> <li><a href='//logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-            } 
-          else  {
-              echo "<li><a href='//users/profile/" . $user['id'] . "'><span class='glyphicon glyphicon-user'></span> ".$user['username'] . "</a></li> <li><a href='//logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-              } 
-              
-        } 
-        else {
-          echo "<li><a href='//register'><span class='glyphicon glyphicon-new-window'></span> Register</a></li>  <li><a href='//login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>";
-        }
-      ?>
-
-    -->
                 <li ng-if="isLoggedIn()">
                     <a href="/#/profile/{{ getCurrentUser()._id }}">
                         <img ng-if="getCurrentUser() && getCurrentUser().photo" ng-src="{{getCurrentUser().photo}}" width="20px" height="20px" class="img-circle">
