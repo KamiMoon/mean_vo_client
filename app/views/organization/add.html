@@ -16,7 +16,7 @@
         ?> -->
             <div class="form-horizontal">
                 <b-input label="Name:" ng-model="organization.name" name="name"></b-input>
-                <b-input label="Photo:" ng-model="organization.photo" type="file"></b-input>
+                <input type="file" ngf-select ng-model="photo" name="photo" accept="image/*" ngf-max-size="2MB">
                 <b-input label="Category:"></b-input>
                 <b-input label="Short Description:" ng-model="organization.short_description" name="short_description"></b-input>
                 <!-- TODO: long_description -->
