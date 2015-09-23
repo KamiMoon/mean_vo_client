@@ -33,14 +33,15 @@ angular.module('meanVoApp')
             }
         };
 
-    }).controller('OrganizationAddCtrl', function($scope, OrganizationService, ValidationService) {
+    }).controller('OrganizationAddCtrl', function($scope, OrganizationService, ValidationService, $location) {
 
         $scope.organization = {};
 
         $scope.save = function(form) {
 
-            OrganizationService.save($scope.organization).$promise.then(function() {
+            OrganizationService.save($scope.organization).$promise.then(function(organization) {
                 ValidationService.displaySuccess();
+                $location.path('/organization/view/' + organization._id);
             }, function(err) {
                 ValidationService.displayErrors(form, err);
             });

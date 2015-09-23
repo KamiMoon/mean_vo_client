@@ -109,7 +109,7 @@ angular
                 templateUrl: 'views/event/index.html',
                 controller: 'EventCtrl'
             })
-            .when('/event/add', {
+            .when('/event/add/:organization_id', {
                 templateUrl: 'views/event/add.html',
                 controller: 'EventAddCtrl'
             })

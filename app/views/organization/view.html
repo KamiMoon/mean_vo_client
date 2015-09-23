@@ -146,6 +146,23 @@
             <div class="panel-heading"><span class="glyphicon glyphicon-calendar"></span>Schedule of Events
             </div>
             <div class="panel-body">
+                <div ng-repeat="event in organization.events">
+                    <h4 ng-bind="event.name"></h4>
+                    <!-- 
+                <?php 
+                            echo date ("l F d, Y", strtotime($event['Event']['created']));?> -->
+                    <p>
+                        <!--                         <?php 
+                            echo substr($event['Event']['description'], 0,200);
+                        ?>... -->
+                    </p>
+                    <p>
+                        <a href="/#/event/view/{{event._id}}">
+                            <button type="button" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-plus"></span> More</button>
+                        </a>
+                    </p>
+                    <hr>
+                </div>
                 <!-- <?php foreach ($events as $event): ?> -->
                 <!--
                 <h4><?php echo $event['Event']['name'];?> </h4>
@@ -172,6 +189,9 @@
                                     <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-tasks"></span> View All Events</button>
                                 </a>
                             -->
+                <a align="left" href="/#/event/add/{{organization._id}}">
+                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Add Event</button>
+                </a>
             </div>
         </div>
     </div>

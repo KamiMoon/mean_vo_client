@@ -177,7 +177,7 @@
     <!-- ??What if there are multiple organizations sponsoring? soln- include only the primary??-->
     <div class="col-md-7">
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="glyphicon glyphicon-star"></span> Sponsor Organization: <strong><a href="/volunteeromaha/organizations/view/<?php echo $event['Organization']['id']?>"><?php echo $event['Organization']['name']?></a></strong>
+            <div class="panel-heading"><span class="glyphicon glyphicon-star"></span> Sponsor Organization: <strong><a href="/#/organization/view/{{event.organization_id._id}}">{{event.organization_id.name}}</a></strong>
             </div>
             <div class="panel-body" align="center" style="word-wrap:normal; vertical-align:center">
                 <pre style="height: 390px"><?php echo $event['Organization']['long_description']; ?></pre>
